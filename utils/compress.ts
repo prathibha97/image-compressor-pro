@@ -16,7 +16,7 @@ export const compressImage = async (file: File) => {
           return;
         }
 
-        const maxWidth = 800; // You can adjust this value based on your requirements
+        const maxWidth = 800; //  Adjust this value based on your requirements
         const maxHeight = 800;
         let width = img.width;
         let height = img.height;
@@ -41,7 +41,7 @@ export const compressImage = async (file: File) => {
         canvas.toBlob(
           (blob) => {
             const compressedFile = new File([blob!], file.name, {
-              type: 'image/jpeg', // You can change the type based on your requirements
+              type: 'image/jpeg', // Change the type based on requirements
             });
             resolve(compressedFile);
           },

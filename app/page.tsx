@@ -3,7 +3,6 @@ import Link from 'next/link';
 const Home = () => {
   return (
     <main className='bg-gray-100'>
-      {/* Hero Section */}
       <section className='bg-blue-500 text-white py-20'>
         <div className='container mx-auto text-center'>
           <h1 className='text-5xl font-bold mb-4'>Image Compressor Pro</h1>
@@ -19,12 +18,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section className='py-16'>
         <div className='container mx-auto text-center'>
           <h2 className='text-3xl font-bold mb-8'>How It Works</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {/* Step 1 */}
             <div className='p-6 bg-white rounded-lg shadow-md'>
               <h3 className='text-xl font-semibold mb-4'>Upload Images</h3>
               <p className='text-gray-600'>
@@ -32,7 +29,6 @@ const Home = () => {
               </p>
             </div>
 
-            {/* Step 2 */}
             <div className='p-6 bg-white rounded-lg shadow-md'>
               <h3 className='text-xl font-semibold mb-4'>
                 Automatic Compression
@@ -43,7 +39,6 @@ const Home = () => {
               </p>
             </div>
 
-            {/* Step 3 */}
             <div className='p-6 bg-white rounded-lg shadow-md'>
               <h3 className='text-xl font-semibold mb-4'>
                 Download Optimized Images
@@ -57,7 +52,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className='bg-blue-500 text-white py-20'>
         <div className='container mx-auto text-center'>
           <h2 className='text-3xl font-bold mb-4'>

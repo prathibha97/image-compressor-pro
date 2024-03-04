@@ -1,7 +1,7 @@
-'use client'
-import NextImage from 'next/image';
-import { useState, ChangeEvent } from 'react';
+'use client';
 import JSZip from 'jszip';
+import NextImage from 'next/image';
+import { ChangeEvent, useState } from 'react';
 
 interface CompressedImage {
   url: string;
@@ -9,19 +9,16 @@ interface CompressedImage {
 }
 
 const CompressPage: React.FC = () => {
-  // State to hold the selected files and compressed image data URLs
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [compressedImages, setCompressedImages] = useState<CompressedImage[]>(
     []
   );
 
-  // Handler for file input change
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     setSelectedFiles(files ? Array.from(files) : []);
   };
 
-  // Function to compress the images on the client side
   const compressImages = () => {
     if (!selectedFiles.length) {
       console.error('Please select at least one image file');
@@ -96,12 +93,11 @@ const CompressPage: React.FC = () => {
       });
   };
 
-  // Function to handle the download button click for a single image
   const handleDownload = (index: number) => {
     if (compressedImages[index]) {
       const link = document.createElement('a');
       link.href = compressedImages[index].url;
-      link.download = compressedImages[index].name; // Use the original file name
+      link.download = compressedImages[index].name;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -112,7 +108,6 @@ const CompressPage: React.FC = () => {
     }
   };
 
-  // Function to handle the download all button click
   const handleDownloadAll = () => {
     if (compressedImages.length > 0) {
       const zip = new JSZip();
@@ -137,40 +132,7 @@ const CompressPage: React.FC = () => {
     }
   };
 
-  // Render the component
   return (
-    // <div>
-    //   <h1 className='text-4xl text-center font-bold'>Image Compressor</h1>
-    //   <label>
-    //     Select Images:
-    //     <input
-    //       type='file'
-    //       accept='image/*'
-    //       onChange={handleFileChange}
-    //       multiple
-    //     />
-    //   </label>
-    //   <button onClick={compressImages}>Compress Images</button>
-    //   {compressedImages.length > 0 && (
-    //     <div>
-    //       <h2>Compressed Images</h2>
-    //       {compressedImages.map((image, index) => (
-    //         <div key={index}>
-    //           <NextImage
-    //             src={image.url}
-    //             alt={`Compressed ${index}`}
-    //             width={100}
-    //             height={100}
-    //           />
-    //           <button onClick={() => handleDownload(index)}>
-    //             Download Image {index}
-    //           </button>
-    //         </div>
-    //       ))}
-    //       <button onClick={handleDownloadAll}>Download All Images</button>
-    //     </div>
-    //   )}
-    // </div>
     <div className='container mx-auto p-8 bg-gray-100 rounded-lg shadow-md'>
       <h1 className='text-4xl text-center font-bold mb-6'>Image Compressor</h1>
 
